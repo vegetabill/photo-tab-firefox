@@ -3,12 +3,11 @@
   "name": "Photo Tab",
   "version": "0.0.1",
   "description": "Loads a Reddit nature photo when you open a new tab",
-  "author": "Bill DePhillips",
-  "homepage_url": "http://brainbox.design",
+  "author": "William DePhillips <bill.dephillips@gmail.com>",
+  "homepage_url": "https://github.com/vegetabill/photo-tab-firefox",
   "permissions": [
     "tabs",
     "browserSettings",
-    "history",
     "<all_urls>"
   ],
   "chrome_settings_overrides": {},

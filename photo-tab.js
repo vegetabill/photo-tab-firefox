@@ -91,11 +91,10 @@ const loadPhotos = () => {
 const showPhoto = (photo) => {
   document.querySelector('body').style.backgroundImage = `url('${photo.url}')`;
   document.querySelector('#title').innerText = photo.title;
+  document.querySelector('#title').href = photo.permalink;
   document.querySelector('#author').innerText  = photo.author;
 };
 
 const onNewTab = () => withNextPhoto().then((p) => showPhoto(p))
-
-document.querySelector('#test-button').onclick = onNewTab;
 
 onNewTab();
