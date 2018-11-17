@@ -1,15 +1,39 @@
 <html>
   <head>
+    <meta charset="UTF-8"> 
     <title>Photo Tab</title>
     <style>
-
+      body {
+        background-size: cover;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      h1, h2 {
+        color: white;
+        text-shadow: 1px 1px 2px black;
+      }
+      #title {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        margin: 10px;
+      }
+      #author {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: 10px;
+      }
+      #next-photo {
+        width: 0px;
+        height: 0px;
+      }
     </style>
-    <meta charset="UTF-8"> 
   </head>
   <body>
     <h1 id="title">Photo Tab</h1>
-    <img id="photo" src="" alt=""/>
     <h2 id="author">Author</h2>
+    <button id="test-button">Test New Tab</button>
+    <img id="next-photo"/>
     <script type="text/javascript" src="./photo-tab.js"></script>
   </body>
 </html>
