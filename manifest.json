@@ -13,10 +13,5 @@
   "chrome_settings_overrides": {},
   "chrome_url_overrides": {
     "newtab": "./photo-tab.html"
-  },
-  "applications": {
-    "gecko": {
-      "strict_min_version": "57.0"
-    }
   }
 }

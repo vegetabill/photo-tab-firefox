@@ -6,7 +6,7 @@ I built this because I loved the [Tab Pics](http://tab.pics/) Chrome extension b
 
 The easiest way is to use the official Add-on registry:
 
-
+https://addons.mozilla.org/en-US/firefox/addon/photo-for-new-tab/
 
 ## Support
 
