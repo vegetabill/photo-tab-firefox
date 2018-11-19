@@ -14,9 +14,13 @@ const preloadNextPhoto = (photo) => {
 };
 
 const updatePhotoCache = (photos) => {
-  preloadNextPhoto(photos[0]);
-  console.log(`loaded ${photos.length} new photos into cache`);
-  localStorage.setItem(LS_KEY, JSON.stringify(photos));
+  if (photos.length === 0) {
+    localStorage.removeItem(LS_KEY);
+  } else {
+    preloadNextPhoto(photos[0]);
+    console.log(`loaded ${photos.length} new photos into cache`);
+    localStorage.setItem(LS_KEY, JSON.stringify(photos));
+  }
 };
 
 const withPopulatedCache = () => {
