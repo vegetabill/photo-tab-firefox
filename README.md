@@ -11,3 +11,11 @@ https://addons.mozilla.org/en-US/firefox/addon/photo-for-new-tab/
 ## Support
 
 Please use GitHub issues for any problems or feature requests.
+
+## Contributing
+
+Pull requests welcome!
+
+## Developer Links
+
+* [web-ext docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Getting_started_with_web-ext)
