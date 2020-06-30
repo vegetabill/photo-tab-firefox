@@ -27,3 +27,4 @@ Pull requests welcome!
 ## Developer Links
 
 - [web-ext docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Getting_started_with_web-ext)
+- To run your changes locally, use `npm start`
