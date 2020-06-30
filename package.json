@@ -1,8 +1,8 @@
 {
   "name": "photo-tab-firefox",
-  "version": "2020.1.0",
+  "version": "0.0.0-unused",
   "description": "I built this because I loved the [Tab Pics](http://tab.pics/) Chrome extension but migrated off Chrome due to privacy concerns. It's my first Firefox extension so it may not be that well-designed but works for me.",
-  "main": "photo-tab.js",
+  "private": true,
   "scripts": {
     "start": "npx web-ext run",
     "build": "node ./build-web-ext.js"

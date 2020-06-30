@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const pkg = require("./package.json");
-const { version, webext: contents, name } = pkg;
+const { webext: contents, name } = pkg;
+const version = require("./manifest.json").version;
 const fs = require("fs");
 const { exec } = require("child_process");
 
