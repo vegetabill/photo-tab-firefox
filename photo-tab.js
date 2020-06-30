@@ -51,7 +51,7 @@ const extractPhotoAttrs = (child) => {
     title,
     author,
     permalink: `https://www.reddit.com${permalink}`,
-    stickied,
+    stickied, // sticky posts are announcements, not photos
   };
 };
 
@@ -74,9 +74,7 @@ const filterOutHugePhotos = (photos) => {
           return null;
         });
     })
-  ).then((photos) => {
-    return photos.filter((p) => p && p.sizeInBytes < 6000000);
-  });
+  ).then((photos) => photos.filter((p) => p && p.sizeInBytes < 6000000));
 };
 
 const loadPhotos = () => {
@@ -95,11 +93,11 @@ const loadPhotos = () => {
     .then((photos) => filterOutHugePhotos(photos));
 };
 
-const showPhoto = (photo) => {
-  document.querySelector("body").style.backgroundImage = `url('${photo.url}')`;
-  document.querySelector("#title").innerText = photo.title;
-  document.querySelector("#title").href = photo.permalink;
-  document.querySelector("#author").innerText = photo.author;
+const showPhoto = ({ url, title, permalink, author }) => {
+  document.querySelector("#photo").src = url;
+  document.querySelector("#title").innerText = title;
+  document.querySelector("#title").href = permalink;
+  document.querySelector("#author").innerText = author;
 };
 
 const onNewTab = () => withNextPhoto().then((p) => showPhoto(p));
