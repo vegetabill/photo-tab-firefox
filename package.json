@@ -4,15 +4,23 @@
   "description": "I built this because I loved the [Tab Pics](http://tab.pics/) Chrome extension but migrated off Chrome due to privacy concerns. It's my first Firefox extension so it may not be that well-designed but works for me.",
   "main": "photo-tab.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx web-ext run",
-    "build": "npx web-ext build"
+    "build": "node ./build-web-ext.js"
   },
+  "webext": [
+    "manifest.json",
+    "photo-tab.html",
+    "photo-tab.js",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vegetabill/photo-tab-firefox.git"
   },
-  "keywords": [],
+  "keywords": [
+    "firefox",
+    "webextension"
+  ],
   "author": "William DePhillips @vegetabill",
   "license": "MPL",
   "bugs": {
@@ -20,6 +28,7 @@
   },
   "homepage": "https://github.com/vegetabill/photo-tab-firefox#readme",
   "devDependencies": {
+    "chalk": "^4.1.0",
     "prettier": "^2.0.5",
     "web-ext": "^4.3.0"
   }
