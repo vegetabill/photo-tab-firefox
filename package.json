@@ -5,7 +5,8 @@
   "main": "photo-tab.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx web-ext run"
+    "start": "npx web-ext run",
+    "build": "npx web-ext build"
   },
   "repository": {
     "type": "git",
