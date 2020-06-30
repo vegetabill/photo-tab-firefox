@@ -12,8 +12,8 @@
     "url": "git+https://github.com/vegetabill/photo-tab-firefox.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "MPL",
+  "author": "William DePhillips @vegetabill",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/vegetabill/photo-tab-firefox/issues"
   },
