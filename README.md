@@ -31,6 +31,6 @@ Pull requests welcome!
 
 ## Changelog
 
-- 2020.1.1 - Fix #2 - improve style for different image aspect ratios
-- 2020.1.0 - Fix #1 - fix network errors
+- 2020.1.1 - Fix [#2](https://github.com/vegetabill/photo-tab-firefox/issues/2) - improve style for different image aspect ratios
+- 2020.1.0 - Fix [#1](https://github.com/vegetabill/photo-tab-firefox/issues/1) - fix network errors
 - 2018.1.1 - Initial public release
