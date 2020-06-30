@@ -28,3 +28,9 @@ Pull requests welcome!
 
 - [web-ext docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Getting_started_with_web-ext)
 - To run your changes locally, use `npm start`
+
+## Changelog
+
+- 2020.1.1 - Fix #2 - improve style for different image aspect ratios
+- 2020.1.0 - Fix #1 - fix network errors
+- 2018.1.1 - Initial public release
