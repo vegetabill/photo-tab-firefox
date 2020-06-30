@@ -71,6 +71,7 @@ const filterOutHugePhotos = (photos) => {
         })
         .catch((err) => {
           console.error(`Error looking up size of image at ${url}`, err);
+          return null;
         });
     })
   ).then((photos) => {
