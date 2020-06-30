@@ -1,4 +1,4 @@
-const LS_KEY = 'photo-cache-v20181101';
+const LS_KEY = "photo-cache-v2020.1.0";
 
 const getPhotoCache = () => {
   const raw = localStorage.getItem(LS_KEY);
@@ -10,7 +10,7 @@ const getPhotoCache = () => {
 };
 
 const preloadNextPhoto = (photo) => {
-  document.querySelector('#next-photo').src = photo.url;
+  document.querySelector("#next-photo").src = photo.url;
 };
 
 const updatePhotoCache = (photos) => {
@@ -36,69 +36,71 @@ const withPopulatedCache = () => {
 };
 
 const withNextPhoto = () => {
-  return withPopulatedCache()
-    .then((photos) => {
-      const photo = photos.shift();
-      updatePhotoCache(photos);
-      return photo;
-    });
+  return withPopulatedCache().then((photos) => {
+    const photo = photos.shift();
+    updatePhotoCache(photos);
+    return photo;
+  });
 };
 
 const extractPhotoAttrs = (child) => {
-  const {
-    name,
-    url,
-    title,
-    permalink,
-    author,
-  } = child.data;
+  const { name, url, title, permalink, author, stickied } = child.data;
   return {
     name, // name is the unique id
     url,
     title,
     author,
     permalink: `https://www.reddit.com${permalink}`,
+    stickied,
   };
 };
 
 const filterOutHugePhotos = (photos) => {
-  return Promise.all(photos.map((photo) => {
-    return fetch(photo.url, { method: 'head', mode: 'no-cors' }).then((response) => {
-      if (response.status !== 200) {
-        ;
-        throw new Error(`Unexpected response HEAD ${photo.url}: HTTP ${response.status}`);
-      }
-      const sizeInBytes = response.headers.get('content-length') || -1;
-      return Object.assign({}, photo, { sizeInBytes });
+  return Promise.all(
+    photos.map((photo) => {
+      const { url } = photo;
+      return fetch(url, { method: "head", mode: "no-cors" })
+        .then((response) => {
+          if (response.status !== 200) {
+            throw new Error(
+              `Unexpected response HEAD ${url}: HTTP ${response.status}`
+            );
+          }
+          const sizeInBytes = response.headers.get("content-length") || -1;
+          return Object.assign({}, photo, { sizeInBytes });
+        })
+        .catch((err) => {
+          console.error(`Error looking up size of image at ${url}`, err);
+        });
     })
-  })).then((photos) => {
-    return photos.filter((p) => p.sizeInBytes < 6000000);
+  ).then((photos) => {
+    return photos.filter((p) => p && p.sizeInBytes < 6000000);
   });
 };
 
 const loadPhotos = () => {
-  return fetch('https://www.reddit.com/r/earthporn.json')
+  return fetch("https://www.reddit.com/r/earthporn.json")
     .then(function (response) {
-      if (response.status !== 200) {;
-        throw new Error(`Unexpected response from Reddit: HTTP ${response.status}`);
+      if (response.status !== 200) {
+        throw new Error(
+          `Unexpected response from Reddit: HTTP ${response.status}`
+        );
       }
       return response.json();
     })
-    .then(function (json) {
-      const { children } = json.data;
-      return children.map(extractPhotoAttrs);
-    }).then((photos) => {
-      return filterOutHugePhotos(photos);
-    })
-  };
-
-const showPhoto = (photo) => {
-  document.querySelector('body').style.backgroundImage = `url('${photo.url}')`;
-  document.querySelector('#title').innerText = photo.title;
-  document.querySelector('#title').href = photo.permalink;
-  document.querySelector('#author').innerText  = photo.author;
+    .then(({ data }) =>
+      data.children.map(extractPhotoAttrs).filter((photo) => !photo.stickied)
+    )
+    .then((photos) => filterOutHugePhotos(photos));
 };
 
-const onNewTab = () => withNextPhoto().then((p) => showPhoto(p))
+const showPhoto = (photo) => {
+  document.querySelector("body").style.backgroundImage = `url('${photo.url}')`;
+  document.querySelector("#title").innerText = photo.title;
+  document.querySelector("#title").href = photo.permalink;
+  document.querySelector("#author").innerText = photo.author;
+};
+
+const onNewTab = () => withNextPhoto().then((p) => showPhoto(p));
 
 onNewTab();

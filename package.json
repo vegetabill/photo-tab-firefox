@@ -1,6 +1,6 @@
 {
   "name": "photo-tab-firefox",
-  "version": "1.0.0",
+  "version": "2020.1.0",
   "description": "I built this because I loved the [Tab Pics](http://tab.pics/) Chrome extension but migrated off Chrome due to privacy concerns. It's my first Firefox extension so it may not be that well-designed but works for me.",
   "main": "photo-tab.js",
   "scripts": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/vegetabill/photo-tab-firefox#readme",
   "devDependencies": {
+    "prettier": "^2.0.5",
     "web-ext": "^4.3.0"
   }
 }
