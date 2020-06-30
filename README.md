@@ -1,6 +1,6 @@
-## Photo Tab Firefox Extension
+# Photo for New Tab (Firefox Add-on)
 
-I built this because I loved the [Tab Pics](http://tab.pics/) Chrome extension but migrated off Chrome due to privacy concerns. It's my first Firefox extension so it may not be that well-designed but works for me.
+**Beautiful nature landscapes with every new tab.**
 
 ## How To Install
 
@@ -8,9 +8,17 @@ The easiest way is to use the official Add-on registry:
 
 https://addons.mozilla.org/en-US/firefox/addon/photo-for-new-tab/
 
+## Demo
+
+![demo screencast](./photo-tab-demo.gif)
+
+## Motivation
+
+I built this because I loved the [Tab Pics](http://tab.pics/) Chrome extension but migrated off Chrome due to privacy concerns. It's my first Firefox extension so it may not be the best code out there but it works for me 😊.
+
 ## Support
 
-Please use GitHub issues for any problems or feature requests.
+Please use GitHub issues link above for any problems or feature requests. Please include the version of Firefox you're using if possible.
 
 ## Contributing
 
